@@ -8,7 +8,7 @@ goog.inherits(tasks.Tasks,goog.ui.Component);
 
 tasks.Tasks.prototype.createDom = function(){
 		var dh = this.getDomHelper();
-		this.setElementInternal(dh.createDom('div','TASKS'));
+		this.setElementInternal(dh.createDom('div',null,'TASKS'));
 };
 tasks.Tasks.prototype.enterDocument = function(){
 		goog.base(this,'enterDocument');
