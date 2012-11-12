@@ -7,12 +7,9 @@
 		</head>
 		<body>
 				<script type="text/javascript" src="closure-library/closure/goog/base.js" ></script>
+				<script type="text/javascript" src="deps.js"></script>
 				<script type="text/javascript">
-						goog.require('goog.dom');
-				</script>
-				<script type="text/javascript">
-						var element = goog.dom.createDom('div',null,'TEST');
-						goog.dom.appendChild(document.body,element);
+						goog.require('tasks.App');
 				</script>
 		</body>
 </html>
