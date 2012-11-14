@@ -3,8 +3,8 @@ goog.require('tasks.Tasks');
 goog.require('goog.dom');
 /** @constructor */
 tasks.App = function(){
-		alert('hoge');
+		var main = goog.dom.getElement('main');
 		var ts = new tasks.Tasks();
-		ts.render();
+		ts.render(main);
 };
 new tasks.App();
