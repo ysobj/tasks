@@ -12,7 +12,8 @@ goog.inherits(tasks.Tasks,goog.ui.Component);
 tasks.Tasks.prototype.createDom = function(){
 		var dh = this.getDomHelper();
 		var el = dh.createDom('div',null,null);
-		el.appendChild(goog.soy.renderAsElement(tasks.tasks_template.base));
+		this.table = goog.soy.renderAsElement(tasks.tasks_template.base);
+		el.appendChild(this.table);
 		this.setElementInternal(el);
 };
 tasks.Tasks.prototype.enterDocument = function(){
@@ -21,5 +22,10 @@ tasks.Tasks.prototype.enterDocument = function(){
 						'click', function(){alert('hoge');});
 };
 tasks.Tasks.prototype.createTask = function(task){
-	alert('task add');	
+		var dh = this.getDomHelper();
+		this.tasks.push(task);
+		var tb = dh.getElementsByTagNameAndClass("tbody",null,this.table);
+		var obj = goog.soy.renderAsElement(tasks.tasks_template.task, task);
+		var tr = dh.getElementsByTagNameAndClass("tr",null,obj);
+		dh.appendChild(tb[0], tr[0]);
 };

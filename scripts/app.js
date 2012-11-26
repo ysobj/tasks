@@ -12,7 +12,15 @@ tasks.App = function(){
 		eh_.listen(
 						btn,
 						goog.events.EventType.CLICK,
-						function(){ts.createTask('hoge')}
+						function(){
+								var task = {
+										"title":"ほげほげ"
+								};
+								var obj = {
+										"task" : task
+								};
+								ts.createTask(obj)
+						}
 			);
 };
 new tasks.App();
