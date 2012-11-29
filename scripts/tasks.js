@@ -2,6 +2,7 @@ goog.provide('tasks.Tasks');
 goog.require('goog.ui.Component');
 goog.require('goog.soy');
 goog.require('tasks.tasks_template');
+goog.require('tasks.Task');
 /** @constructor */
 tasks.Tasks = function(){
 		goog.base(this);
@@ -23,9 +24,10 @@ tasks.Tasks.prototype.enterDocument = function(){
 };
 tasks.Tasks.prototype.createTask = function(task){
 		var dh = this.getDomHelper();
+		var task = new tasks.Task();
+		task.title = 'これこれ';
 		this.tasks.push(task);
 		var tb = dh.getElementsByTagNameAndClass("tbody",null,this.table);
-		var obj = goog.soy.renderAsElement(tasks.tasks_template.task, task);
-		var tr = dh.getElementsByTagNameAndClass("tr",null,obj);
-		dh.appendChild(tb[0], tr[0]);
+		task.createDom();
+		dh.appendChild(tb[0], task.getElement());
 };
