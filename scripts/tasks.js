@@ -6,7 +6,6 @@ goog.require('tasks.Task');
 /** @constructor */
 tasks.Tasks = function(){
 		goog.base(this);
-		this.tasks = [];
 };
 goog.inherits(tasks.Tasks,goog.ui.Component);
 
@@ -20,13 +19,13 @@ tasks.Tasks.prototype.createDom = function(){
 tasks.Tasks.prototype.enterDocument = function(){
 		goog.base(this,'enterDocument');
 		this.getHandler().listen(this.getElement(),
-						'click', function(){alert('hoge');});
+						'click', function(e){console.log(e)});
 };
 tasks.Tasks.prototype.createTask = function(task){
 		var dh = this.getDomHelper();
 		var task = new tasks.Task();
 		task.title = 'これこれ';
-		this.tasks.push(task);
+		this.addChild(task);
 		var tb = dh.getElementsByTagNameAndClass("tbody",null,this.table);
 		task.createDom();
 		dh.appendChild(tb[0], task.getElement());
