@@ -1,0 +1,1 @@
+python closure-library/closure/bin/build/closurebuilder.py --root="closure-library" --root="scripts/" --output_mode=compiled --output_file="scripts/combine_min.js" --namespace="tasks.App" --compiler_jar="compiler.jar" --compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS"
